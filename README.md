@@ -1,29 +1,31 @@
-# Agricultural Drone Fleet Manager
+# 🚁 Agri-Drone Fleet Manager
 
-## Overview
-The Agricultural Drone Fleet Manager is a Command Line Interface (CLI) application built in Java. It allows farm operators to manage a fleet of specialized agricultural drones (sprayers and surveyors), dispatch them on automated waypoint missions, and track their flight telemetry via local file logging.
+Welcome to the **Agri-Drone Fleet Manager**! This is my custom project submission for the Java Programming evaluation. 
 
-## Features (Functional Requirements)
-- **Fleet Management (CRUD):** Add, view, and track the status of different drone types.
-- **Mission Assignment:** Dispatch drones to specific geographical coordinates based on their payload capabilities.
-- **Telemetry Logging:** Automatically generate post-mission reports saved to a local text file (`mission_logs.txt`).
+## 📖 Project Overview
+As modern agriculture leans heavier into automation, farm operators are deploying multiple drones for different tasks—like spraying crops and surveying field health. However, managing these fleets manually is inefficient. 
 
-## Technologies Used
-- Java (JDK 8 or higher)
-- Object-Oriented Principles (Inheritance, Abstraction, Polymorphism)
-- Java Standard Library (Collections, File I/O, Scanner)
+I built this command-line application to act as a high-level logistical layer for agricultural drones. Instead of dealing with low-level flight controllers, this software focuses on the management side: tracking which drones are available, categorizing them by their hardware payloads (chemical tanks vs. cameras), dispatching them to specific field coordinates, and automatically logging their flight telemetry.
 
-## How to Install and Run
-This project requires no GUI or external IDE to run. 
+## ✨ Key Features (Functional Requirements)
+To meet the project requirements, I built out three core functional modules:
+1. **Dynamic Fleet Management (CRUD):** Users can register new drones into the system, view the entire active fleet, and track real-time availability and battery levels.
+2. **Hardware-Aware Mission Dispatch:** The system uses business logic to ensure that only available drones of the correct type are dispatched (e.g., preventing a survey drone from attempting a spraying mission).
+3. **Automated Telemetry Logging:** Every time a drone completes a mission, the system simulates the battery drain and automatically writes a post-flight report to a local text file (`mission_logs.txt`) for auditing purposes.
 
-1. Clone the repository: `git clone https://github.com/yourusername/AgriDroneFleetManager.git`
-2. Navigate to the directory: `cd AgriDroneFleetManager`
-3. Compile all Java files: `javac *.java`
-4. Run the application: `java Main`
+## 🛠️ Technology Stack & Concepts
+I intentionally kept this project lightweight and fully executable from the terminal without requiring any heavy IDEs or external databases. 
+* **Language:** Core Java (JDK 8+)
+* **Architecture:** Pure Object-Oriented Programming (OOP)
+  * **Inheritance & Polymorphism:** Created an abstract base `Drone` class, extended by specialized `SprayingDrone` and `SurveyDrone` subclasses.
+  * **Interfaces:** Implemented a `Mission` interface to standardize how different drones execute tasks.
+  * **Encapsulation:** Protected class variables using strict getter/setter methods.
+* **Data Handling:** Java Collections (`ArrayList`) for dynamic memory management.
+* **Storage:** Java File I/O (`FileWriter`) for persistent log storage.
 
-## Testing Instructions
-1. Run the application.
-2. Select Option `1` to add a Spraying Drone (e.g., ID: `AG-01`, Tank: `15.5`).
-3. Select Option `3` to verify the drone was added.
-4. Select Option `4` to dispatch a mission. Enter `spray` and coordinate `Zone A`.
-5. Exit the program and check the newly created `mission_logs.txt` file in the root directory to verify File I/O operations worked correctly.
+## 🚀 How to Install and Run
+I designed this to be fully executable via the command line, requiring zero GUI-based setup. Assume you are starting from scratch:
+
+1. **Clone the repository:**
+   ```bash
+   git clone [https://github.com/Hazijul/AgriDroneFleetManager.git](https://github.com/Hazijul/AgriDroneFleetManager.git)
